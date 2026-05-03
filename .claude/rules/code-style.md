@@ -125,11 +125,17 @@ Applies to lists, code blocks, and nested structures inside `///`. Enforced by c
 
 ## Enforcement
 
-Minimal checks that cover the required rules above:
+CI/CD-aligned checks:
+
+- Every CI/CD job must run tests, except the macOS package job.
+- The macOS package job may skip tests only when it packages artifacts that have
+  already passed the normal test jobs.
+- Local validation should mirror the non-package CI jobs:
 
 ```bash
 cargo fmt --check
-cargo clippy -- \
+cargo test --all-targets --all-features
+cargo clippy --all-targets --all-features -- \
     -W clippy::missing_errors_doc \
     -W clippy::missing_panics_doc \
     -W clippy::tabs_in_doc_comments

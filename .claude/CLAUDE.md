@@ -2,6 +2,9 @@
 
 These principles govern *how* work gets done in this project. They apply to every feature, refactor, and non-trivial bug fix.
 
+Additional project rules live in `.claude/rules/`. Read the relevant files there
+before making changes that touch their topic.
+
 ### Design First
 
 - **Define data structures and types before logic.** Write the `struct`, `enum`, and trait signatures first. Forcing the data model out early forces the business logic to be thought through, and the interfaces fall out naturally.
